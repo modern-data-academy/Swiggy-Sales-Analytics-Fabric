@@ -1,31 +1,34 @@
-# 🍽️ Swiggy Sales Analytics | Microsoft Fabric & Power BI
+# 🍽️ Swiggy Sales Analytics Dashboard | Microsoft Fabric & Power BI
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Microsoft%20Fabric-Analytics-blue?style=for-the-badge&logo=microsoftfabric" alt="Microsoft Fabric"/>
-  <img src="https://img.shields.io/badge/Power%20BI-Dashboard-yellow?style=for-the-badge&logo=powerbi" alt="Power BI"/>
-  <img src="https://img.shields.io/badge/SQL-T--SQL-orange?style=for-the-badge&logo=microsoftsqlserver" alt="T-SQL"/>
-  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" alt="Project Status"/>
+  <img src="https://img.shields.io/badge/Microsoft%20Fabric-Data%20Engineering-blue?style=for-the-badge&logo=microsoftfabric" alt="Microsoft Fabric"/>
+  <img src="https://img.shields.io/badge/Power%20BI-Interactive%20Dashboard-yellow?style=for-the-badge&logo=powerbi" alt="Power BI"/>
+  <img src="https://img.shields.io/badge/SQL-T--SQL-orange?style=for-the-badge&logo=microsoftsqlserver" alt="SQL"/>
+  <img src="https://img.shields.io/badge/Project-Completed-success?style=for-the-badge" alt="Project Status"/>
 </p>
 
 <p align="center">
-  <b>🚀 End-to-End Data Engineering | 📊 Business Intelligence | ⚙️ ETL Pipelines</b>
+  <b>📊 Business Intelligence | ⚙️ Data Engineering | 📈 Sales Analytics</b>
 </p>
 
-An end-to-end **Data Engineering and Business Intelligence project** built using Microsoft Fabric, Fabric Lakehouse, Fabric Warehouse, T-SQL, and Power BI to analyze Swiggy restaurant orders, sales, ratings, locations, and customer trends.
+An end-to-end **Swiggy Sales Analytics Dashboard** built using **Microsoft Fabric, Fabric Lakehouse, Fabric Warehouse, T-SQL, and Power BI** to analyze order performance, sales trends, restaurant ratings, and geographical patterns.
 
-This project demonstrates data ingestion, transformation, duplicate management, dimensional modeling, SQL-based data quality checks, and interactive dashboard development.
+This project combines data engineering and business intelligence to transform raw data into structured analytical datasets and interactive dashboards that support data-driven decision-making.
 
 ---
 
 ## 📌 Table of Contents
 
 - 🎯 Project Overview
-- ✨ Key Features
+- 📊 Dashboard Highlights
+- 📈 Key Performance Indicators
+- 📉 Visualizations and Analysis
+- 🎛️ Interactive Features
 - 🛠️ Technology Stack
 - 🏗️ Project Architecture
 - 🗄️ Data Model
 - 💻 SQL Development
-- 📊 Power BI Dashboard
+- 🖼️ Dashboard Preview
 - 📁 Repository Structure
 - 🚀 How to Explore the Project
 - 🧠 Skills Demonstrated
@@ -35,17 +38,108 @@ This project demonstrates data ingestion, transformation, duplicate management, 
 
 ## 🎯 Project Overview
 
-The objective is to transform raw Swiggy data into structured, analytics-ready datasets and develop an interactive Power BI dashboard to support business analysis and decision-making.
+The objective of this project is to develop an interactive Power BI dashboard that provides insights into Swiggy's restaurant and order data.
 
-### ✨ Key Features
+The solution uses Microsoft Fabric to manage data ingestion, transformation, storage, and analytical modeling before connecting the prepared data to Power BI for visualization.
 
-- 🔄 **Data Engineering:** Built a Lakehouse-to-Warehouse workflow in Microsoft Fabric.
-- 🧹 **Data Transformation:** Processed and structured data for analytical reporting.
-- 🛡️ **Data Quality:** Used T-SQL to identify duplicates and validate records.
-- ⚙️ **Duplicate Management:** Implemented stored procedures and a table-valued function for duplicate detection and removal.
-- ⭐ **Dimensional Modeling:** Organized analytical data using fact and dimension tables.
-- 📈 **Business Intelligence:** Created interactive Power BI visuals, KPIs, and filters.
-- 🌍 **Sales Analytics:** Explored order trends, restaurant ratings, and geographical patterns.
+### Business Objectives
+
+- Monitor overall order and sales performance.
+- Analyze restaurant ratings and customer feedback indicators.
+- Identify sales and order trends over time.
+- Compare performance across geographical locations.
+- Explore restaurant and dish-level performance.
+- Improve data reliability through SQL-based validation and duplicate management.
+
+---
+
+## 📊 Dashboard Highlights
+
+The dashboard is designed to provide a consolidated view of Swiggy business performance through KPI cards, charts, comparisons, and interactive filters.
+
+### Main Dashboard Components
+
+- **Executive Overview:** High-level KPIs for quick performance monitoring.
+- **Sales Analysis:** Sales distribution and performance comparisons.
+- **Order Analysis:** Order volume and time-based trends.
+- **Restaurant Analysis:** Restaurant-level performance and rating comparisons.
+- **Location Analysis:** Geographical comparisons of orders and sales.
+- **Rating Analysis:** Average ratings and rating-count indicators.
+
+*The final sections and visuals should reflect the pages included in your actual Power BI report.*
+
+---
+
+## 📈 Key Performance Indicators (KPIs)
+
+The dashboard can display the following business metrics, depending on the measures available in the report.
+
+| KPI | Business Purpose |
+|---|---|
+| 💰 Total Sales | Measures the total recorded sales value |
+| 📦 Total Orders | Tracks the number of orders |
+| ⭐ Average Rating | Evaluates the average recorded restaurant rating |
+| 📝 Rating Count | Measures the number of recorded ratings |
+| 📍 Location Performance | Compares business performance across locations |
+| 📅 Sales Trends | Tracks changes in sales across dates or periods |
+
+### Example DAX Measures
+
+Use these examples only after confirming that your table and column names match your Power BI model.
+
+**Total Orders**
+```dax
+Total Orders = DISTINCTCOUNT(fact_order[order_id])
+```
+
+**Total Sales**
+
+```dax
+Total Sales = SUM(fact_order[sales])
+```
+
+**Average Rating**
+
+```dax
+Average Rating = AVERAGE(fact_order[rating])
+```
+
+**Rating Count**
+
+```dax
+Rating Count = COUNT(fact_order[rating])
+```
+
+*Note: Replace column names with the actual fields in your model. Use `SUM` for sales only when the sales column contains an additive order-level amount. Confirm the grain of the fact table to avoid double-counting.*
+
+---
+
+## 📉 Visualizations and Analysis
+
+The dashboard can include the following visual types to make business performance easier to understand.
+
+| Visualization | Purpose |
+|---|---|
+| KPI Cards | Display important business metrics |
+| Line Chart | Show sales and order trends over time |
+| Bar Chart | Compare sales or orders across locations |
+| Donut Chart | Show category or location distribution |
+| Table/Matrix | Provide detailed restaurant or order analysis |
+| Slicers | Filter data by date, location, restaurant, or category |
+
+These visuals help users explore business performance at both summary and detailed levels.
+
+---
+
+## 🎛️ Interactive Dashboard Features
+
+- 📅 Date-based filtering for period-wise analysis.
+- 📍 Location slicers for geographical comparisons.
+- 🍽️ Restaurant and dish-level filtering, where supported by the data model.
+- 🔎 Cross-filtering between compatible charts.
+- 📊 KPI cards for quick performance monitoring.
+- 📋 Detailed views for exploring underlying records.
+- 🔄 Dynamic report updates when supported filters or selections change.
 
 ---
 
@@ -53,105 +147,92 @@ The objective is to transform raw Swiggy data into structured, analytics-ready d
 
 | Technology | Purpose |
 |---|---|
-| 🔷 [Microsoft Fabric](https://learn.microsoft.com/fabric/) | Data engineering and analytics platform |
-| 🏞️ Fabric Lakehouse | Data storage and processing |
-| 🏢 Fabric Warehouse | Structured analytical data storage |
-| 💻 [T-SQL](https://learn.microsoft.com/sql/t-sql/) | Data cleaning, validation, and duplicate management |
-| 📊 [Power BI](https://powerbi.microsoft.com/) | Interactive dashboards and reporting |
-| 🔄 ETL Pipelines | Data movement and workflow orchestration |
-| ⭐ Dimensional Modeling | Organizing data for analytical queries |
-| 📐 DAX & Power Query | KPI calculations and data transformation, where used in the report |
+| Microsoft Fabric | Unified data engineering and analytics |
+| Fabric Lakehouse | Data storage and preparation |
+| Fabric Warehouse | Structured analytical data storage |
+| T-SQL | Data validation, queries, and duplicate management |
+| ETL Pipelines | Data movement and workflow orchestration |
+| Power BI | Interactive dashboards and reporting |
+| DAX | Measures and KPI calculations |
+| Power Query | Data transformation, where used |
 
 ---
 
 ## 🏗️ Project Architecture
 
 ```text
-📂 Source Data
-      |
-      ▼
+📂 Source Swiggy Data
+         |
+         ▼
 🏞️ Microsoft Fabric Lakehouse
-      |
-      ▼
-🧹 Data Transformation & Cleaning
-      |
-      ▼
+         |
+         ▼
+🧹 Data Cleaning & Transformation
+         |
+         ▼
 🔄 Lakehouse-to-Warehouse Pipeline
-      |
-      ▼
+         |
+         ▼
 🏢 Microsoft Fabric Warehouse
-      |
-      ├── 📅 dim_date
-      ├── 📍 dim_location
-      ├── 🍽️ dim_restaurant
-      ├── 🥘 dim_dish
-      |
-      └── 📦 fact_order
-               |
-               ▼
-        📊 Power BI Dashboard
-               |
-               ▼
-        💡 Business Insights
+         |
+         ├── dim_date
+         ├── dim_location
+         ├── dim_restaurant (if implemented)
+         ├── dim_dish (if implemented)
+         |
+         └── fact_order
+                  |
+                  ▼
+          📊 Power BI Data Model
+                  |
+                  ▼
+          📈 Swiggy Analytics Dashboard
+                  |
+                  ▼
+          💡 Business Insights
 ```
 
 ---
 
 ## 🗄️ Data Model
 
-The project uses a fact-and-dimension structure to support analytical reporting.
+The analytical model follows a fact-and-dimension approach, subject to the final Warehouse implementation.
 
-### 📐 Dimension Tables
+### Fact Table
 
-- 📅 `dim_date` — order dates and time-based analysis.
-- 📍 `dim_location` — geographical and location-based analysis.
-- 🍽️ `dim_restaurant` — restaurant-level analysis.
-- 🥘 `dim_dish` — dish and category analysis.
+- `fact_order` — stores order-level records, measures, and relevant dimension keys.
 
-### 📦 Fact Table
+### Dimension Tables
 
-- `fact_order` — order-level measures and related dimension keys.
+- `dim_date` — supports date-based reporting.
+- `dim_location` — supports geographical analysis.
+- `dim_restaurant` — supports restaurant analysis, if implemented.
+- `dim_dish` — supports dish-level analysis, if implemented.
 
-> 📝 Note: Verify table names and relationships against your final Fabric Warehouse schema.
+The model is intended to support structured queries and reporting while reducing unnecessary duplication and improving analytical consistency.
 
 ---
 
 ## 💻 SQL Development
 
-The T-SQL scripts cover the following activities:
+The SQL development component supports the reliability of the dashboard data.
 
-- 🏗️ Creating and querying the `swiggy_project` schema.
-- 🔍 Validating record counts across tables.
-- 🧹 Identifying duplicate dimension keys and order IDs.
-- 📅 Converting source date strings into valid date values.
-- 🔢 Removing duplicates using `ROW_NUMBER()` and common table expressions (CTEs).
-- ⚙️ Creating stored procedures for duplicate management.
-- 🛡️ Creating a table-valued function to report duplicate records across multiple tables.
+- Schema and table queries in the `swiggy_project` schema.
+- Record-count checks and data validation.
+- Duplicate identification using `ROW_NUMBER()` and CTEs.
+- Duplicate-management stored procedures.
+- Date-value validation and conversion.
+- Table-valued function for duplicate reporting, where implemented.
+- Analytical queries for preparing data for reporting.
 
-**Outcome:** Improved data consistency and prepared structured datasets for analytical reporting.
+These activities help maintain data quality before the data is consumed by Power BI.
 
 ---
 
-## 📊 Power BI Dashboard
+## 🖼️ Dashboard Preview
 
-The Power BI report provides interactive analysis of Swiggy business performance.
+<img width="833" height="503" alt="image" src="https://github.com/user-attachments/assets/321f464f-f5cf-43c9-a660-ccfb896c2218" />
 
-### 📈 Key Analytical Areas
-
-- 💰 Total orders and sales.
-- 🍽️ Restaurant and dish performance.
-- ⭐ Ratings and rating counts.
-- 📍 Location-based comparisons.
-- 📅 Date-based sales and order trends.
-- 🎛️ Interactive slicers, filters, and KPI cards.
-
-### 🖼️ Dashboard Preview
-
-Add your dashboard screenshot to the `screenshots` folder and display it here:
-
-```markdown
-![Swiggy Sales Analytics Dashboard](screenshots/dashboard-overview.png)
-```
 
 ---
 
@@ -160,67 +241,61 @@ Add your dashboard screenshot to the `screenshots` folder and display it here:
 ```text
 swiggy-sales-analytics-fabric/
 │
-├── 📄 README.md
+├── README.md
 │
-├── 💻 sql/
+├── sql/
 │   └── T-SQL-Swiggy.sql
 │
-├── 🏢 warehouse/
+├── warehouse/
 │   └── Swiggy_DW/
 │
-├── 🔄 pipelines/
+├── pipelines/
 │   └── LH-to-WH/
 │
-├── 📊 powerbi/
+├── powerbi/
 │   └── Swiggy-Analysis.pbix
 │
-└── 🖼️ screenshots/
-    └── dashboard-overview.png
+└── screenshots/
+    ├── dashboard-overview.png
+    ├── sales-analysis.png
+    └── location-analysis.png
 ```
 
-*Organize the uploaded files into these folders. The actual extracted Warehouse and pipeline file structure may differ from this example.*
+*This is a suggested folder structure. Keep only files and folders that you actually upload to GitHub.*
 
 ---
 
 ## 🚀 How to Explore the Project
 
-1. 📥 Download or clone this repository.
-2. 💻 Review the SQL scripts to understand data cleaning and duplicate-management logic.
-3. 🏢 Explore the Warehouse project files, including tables, functions, and stored procedures.
-4. 🔄 Review the Lakehouse-to-Warehouse pipeline definitions.
-5. 📊 Open `Swiggy-Analysis.pbix` in Power BI Desktop.
-6. 🔌 Configure your own Fabric connections and workspace settings if you want to reproduce the workflow.
+1. Clone or download the GitHub repository.
+2. Review the SQL scripts to understand data cleaning and validation.
+3. Explore the available Warehouse and pipeline artifacts.
+4. Open `Swiggy-Analysis.pbix` using Power BI Desktop.
+5. Review the dashboard KPIs, visualizations, and filters.
+6. Configure your own data connections and permissions if reproducing the project.
+7. Connect to the appropriate Microsoft Fabric resources if you want to refresh the data.
 
-### 📋 Prerequisites
+### Prerequisites
 
 - Microsoft Fabric workspace with appropriate permissions.
 - Power BI Desktop.
-- Compatible SQL environment for reviewing or executing scripts.
-- Access to the relevant source data and connections to reproduce the pipeline.
+- Access to the source data and required Fabric resources.
+- Compatible SQL environment for reviewing scripts.
 
 ---
 
 ## 🧠 Skills Demonstrated
 
-<p>
-  <img src="https://img.shields.io/badge/Data%20Engineering-0078D4?style=flat-square" alt="Data Engineering"/>
-  <img src="https://img.shields.io/badge/Microsoft%20Fabric-512BD4?style=flat-square&logo=microsoftfabric" alt="Microsoft Fabric"/>
-  <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=powerbi&logoColor=black" alt="Power BI"/>
-  <img src="https://img.shields.io/badge/SQL-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white" alt="SQL"/>
-  <img src="https://img.shields.io/badge/ETL%20Pipelines-008272?style=flat-square" alt="ETL Pipelines"/>
-  <img src="https://img.shields.io/badge/Data%20Modeling-6A5ACD?style=flat-square" alt="Data Modeling"/>
-  <img src="https://img.shields.io/badge/Data%20Quality-228B22?style=flat-square" alt="Data Quality"/>
-  <img src="https://img.shields.io/badge/Business%20Intelligence-FF8C00?style=flat-square" alt="Business Intelligence"/>
-</p>
-
-- 🔄 ETL and Data Pipeline Development
-- 🏞️ Microsoft Fabric Lakehouse and Warehouse
-- 💻 SQL and T-SQL
-- 🧹 Data Cleaning and Data Quality
-- 📐 Dimensional Modeling
-- ⚙️ Duplicate Detection and Removal
-- 📊 Power BI Dashboard Development
-- 💡 Business Intelligence and Data Analytics
+- Microsoft Fabric Lakehouse and Warehouse
+- ETL Pipeline Development
+- SQL and T-SQL
+- Data Cleaning and Data Quality
+- Duplicate Detection and Management
+- Fact and Dimension Modeling
+- Power BI Dashboard Development
+- DAX and Power Query
+- KPI Design and Business Reporting
+- Data Visualization and Analytical Thinking
 
 ---
 
@@ -235,6 +310,6 @@ swiggy-sales-analytics-fabric/
 
 ---
 
-⭐ **If you find this project useful, consider giving the repository a star!**
+⭐ If you find this project useful, consider giving the repository a star!
 
 💬 Feedback and suggestions are always welcome.
